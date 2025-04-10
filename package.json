@@ -4,7 +4,9 @@
   "description": "I'm creating a full application from zero, as a learning projetc, based on curso.dev.",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write ."
   },
   "author": "",
   "license": "MIT",
@@ -14,8 +16,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
-    "lint:check": "prettier --check .",
-    "lint:fix": "prettier --write ."
+    "prettier": "^3.5.3"
   }
 }
