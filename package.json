@@ -4,11 +4,14 @@
   "description": "I'm creating a full application from zero, as a learning projetc, based on curso.dev.",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run services:up && next dev",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "services:up": "docker-compose -f infra/compose.yaml up -d",
+    "services:pause": "docker-compose -f infra/compose.yaml pause",
+    "services:down": "docker-compose -f infra/compose.yaml down"
   },
   "author": "",
   "license": "MIT",
