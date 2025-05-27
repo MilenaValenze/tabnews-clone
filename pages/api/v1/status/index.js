@@ -2,11 +2,31 @@ import { Query } from "pg";
 import database from "infra/database.js";
 
 async function status(request, response) {
-  const result = await database.query("SELECT 1+1 as sum;");
-  console.log(result.rows);
-  response
-    .status(200)
-    .json({ chave: "Em breve, página com informações sobre o site." });
+  const updatedAt = new Date().toISOString();
+
+  const databaseVersionResult = await database.query("SHOW server_version;");
+  const databaseVersionValue = databaseVersionResult.rows[0].server_version;
+
+  const maxConnectionsResult = await database.query("SHOW max_connections;");
+  const maxConnectionsValue = parseInt(
+    maxConnectionsResult.rows[0].max_connections,
+  );
+
+  const openConnectionsResult = await database.query(
+    "SELECT count(*)::int FROM pg_stat_activity WHERE datname = 'local_database';",
+  );
+  const openConnectionsValue = parseInt(openConnectionsResult.rows[0].count);
+
+  response.status(200).json({
+    updated_at: updatedAt,
+    dependencies: {
+      database: {
+        database_version: databaseVersionValue,
+        max_connections: maxConnectionsValue,
+        open_connections: openConnectionsValue,
+      },
+    },
+  });
 }
 
 export default status;
