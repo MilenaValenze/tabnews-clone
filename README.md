@@ -4,13 +4,13 @@ Estou criando um projeto semelhante ao TabNews, para aprender todo o ciclo de de
 Tecnologias e práticas utilizadas até o momento:
 - Node.js
 - Next.js
-- Prettier -> Para padronizar o formato do código em todo o projeto
-- registro.br -> Para registrar o domínio do site (valenze.com.br)
-- Jest -> Para testes unitários
+- Prettier
+- registro.br
+- Jest
 - API
 - Docker
 - PostgreSQL
 - Variáveis de Ambiente
-- Vercel -> Deploy em produção
-- Neon -> Hospedagem do banco
+- Vercel
+- Neon Serverless Postgres
 - Migrations
