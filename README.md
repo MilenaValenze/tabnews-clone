@@ -1,5 +1,6 @@
 # tabnews-clone
 Estou criando um projeto semelhante ao TabNews, para aprender todo o ciclo de desenvolvimento de uma aplicação completa do zero.
+Por enquanto estou trabalhando na infraestrutura do projeto.
 
 Tecnologias e práticas utilizadas até o momento:
 - Node.js
